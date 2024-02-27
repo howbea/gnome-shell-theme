@@ -9,7 +9,7 @@ $is_highcontrast:false;
 $_dark_base_color: desaturate($dark_4, 100%);
 
 $base_color: if($variant == 'light', $light_1, $_dark_base_color);
-$bg_color: if($variant == 'light', $light_2, lighten($base_color, 5%));
+$bg_color: if($variant == 'light', darken($light_1, 4%), lighten($base_color, 5%));
 $fg_color: if($variant == 'light', $_dark_base_color, white);
 
 $selected_fg_color: $light_1;

@@ -114,7 +114,7 @@
       background-color: transparentize($fg_color, 0.8);
       @if $variant == 'light' {
       	border: 0.5px solid $borders_color;
-      	background-color: white;
+      	background-color: transparentize(white, 0.8);
       	}
 
       &.active {

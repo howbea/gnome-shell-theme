@@ -2,7 +2,7 @@
 // a.k.a. the panel
 
 //$panel_bg_color: if($variant == 'light', $light_3, $dark_5);
-$panel_bg_color: if($variant == 'light', darken($light_1, 8%), $dark_5);
+$panel_bg_color: if($variant == 'light', darken($light_1, 4%), $dark_5);
 $panel_fg_color: if($variant == 'light', $_dark_base_color, darken($fg_color, 5%));
 $panel_border_color: if($variant == 'light', darken($panel_bg_color, 0%), $panel_bg_color);
 
