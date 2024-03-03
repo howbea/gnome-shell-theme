@@ -156,6 +156,11 @@ $_gdm_dialog_width: 23em;
 
 .unlock-dialog {
   background-color: transparent;
+
+  // %system_entry style override to have neutral focus color with wallpaper background
+  .login-dialog-prompt-entry {
+    &:focus { @include entry(focus, $c:$system_fg_color, $fc:transparentize($system_fg_color, 0.5));}
+  }
 }
 
 .screen-shield-background { // just the shadow, really
@@ -259,7 +264,6 @@ $_gdm_dialog_width: 23em;
         width: $base_icon_size*3;
         height:  $base_icon_size*3;
         background-color: transparentize($_gdm_fg, 0.9);
-        @if $variant == 'light' { color: $_gdm_fg; }
       }
     }
   }
@@ -281,7 +285,6 @@ $_gdm_dialog_width: 23em;
         padding: 32px;
         icon-size: $base_icon_size*4;
         background-color: transparentize($_gdm_fg, 0.9);
-        @if $variant == 'light' { color: $_gdm_fg; }
       }
     }
   }
