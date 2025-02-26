@@ -349,53 +349,40 @@
   //
 
   @extend %tile;
-  
-    @if $raised {
-    @include button(normal, $tc:$fg, $c:$bg, $always_dark: $system);
+
+  @if $raised {
+    @include button(normal, $tc:$fg, $c:transparentize($bg, .9), $always_dark: $system);
+    background-color: if($variant == 'light', transparentize($bg, .84), $bg);
+    
     &:focus { @include button(focus, $tc:$fg, $c:$bg, $always_dark: $system);}
     &:hover { @include button(hover, $tc:$fg, $c:$bg, $always_dark: $system);}
     &:active { @include button(active, $tc:$fg, $c:$bg, $always_dark: $system);}
     &:highlighted,&:selected,
     &:checked { @include button(checked, $tc:$fg, $c:$bg, $always_dark: $system);}
     &:insensitive { @include button(insensitive, $tc:$fg, $c:$bg, $always_dark: $system);}
-  } @else {
-    @include button(normal, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);
-    // override the mixin to have the flat button always be transparent
-    // fixes issue with overlapping tiles
-    background-color: transparent;
-    &:focus { @include button(focus, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-    &:hover { @include button(hover, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-    &:active { @include button(active, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-    &:highlighted,&:selected,
-    &:checked { @include button(checked, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-    &:insensitive { @include button(insensitive, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-  }
-  
-  @if $variant == 'light'{
-    @if $raised {
-    background-color: transparent;
-    @include button(normal, $tc:$fg, $c:transparentize($bg, .87), $always_dark: $system);
-    //background-color: transparentize($bg, .87);
-    &:focus { @include button(focus, $tc:$fg, $c:transparentize($bg, .87), $always_dark: $system);}
-    &:hover { @include button(hover, $tc:$fg, $c:transparentize($bg, .9), $always_dark: $system);}
+    
+    @if $variant == 'light' {
+    &:focus { @include button(focus, $tc:$fg, $c:transparentize($bg, .87), $always_dark: $system);
+    &:hover { @include button(hover, $tc:$fg, $c:transparentize($bg, .84), $always_dark: $system);}}
+    &:hover { @include button(hover, $tc:$fg, $c:transparentize($bg, .84), $always_dark: $system);}
     &:active { @include button(active, $tc:$fg, $c:transparentize($bg, .87), $always_dark: $system);}
     &:highlighted,&:selected,
     &:checked { @include button(checked, $tc:$fg, $c:transparentize($bg, .81), $always_dark: $system);}
-    &:insensitive { @include button(insensitive, $tc:$fg, $c:transparentize($bg, .9), $always_dark: $system);}    
+    &:insensitive { @include button(insensitive, $tc:$fg, $c:transparentize($bg, .0), $always_dark: $system);}
+    }
   } @else {
-  
-    @include button(normal, $tc:$fg, $c:transparent, $style: flat, $always_dark: $system);
+    @include button(normal, $tc:$fg, $c:transparentize($bg, .9), $style: flat, $always_dark: $system);
     // override the mixin to have the flat button always be transparent
     // fixes issue with overlapping tiles
     background-color: transparent;
-    &:focus { @include button(focus, $tc:$fg, $c:transparentize($bg, .87), $style: flat, $always_dark: $system);}
-    &:hover { @include button(hover, $tc:$fg, $c:transparentize($bg, .9), $style: flat, $always_dark: $system);}
+    &:focus { @include button(focus, $tc:$fg, $c:transparentize($bg, .87), $style: flat, $always_dark: $system);
+    &:hover { @include button(hover, $tc:$fg, $c:transparentize($bg, .84), $style: flat, $always_dark: $system);}}
+    &:hover { @include button(hover, $tc:$fg, $c:transparentize($bg, .84), $style: flat, $always_dark: $system);}
     &:active { @include button(active, $tc:$fg, $c:transparentize($bg, .87), $style: flat, $always_dark: $system);}
     &:highlighted,&:selected,
     &:checked { @include button(checked, $tc:$fg, $c:transparentize($bg, .81), $style: flat, $always_dark: $system);}
-    &:insensitive { @include button(insensitive, $tc:$fg, $c:transparentize($bg, .9), $style: flat, $always_dark: $system);}
+    &:insensitive { @include button(insensitive, $tc:$fg, $c:transparentize($bg, .0), $style: flat, $always_dark: $system);}
   }
-}
 
   &:drop {
     background-color: st-transparentize(-st-accent-color, .8);

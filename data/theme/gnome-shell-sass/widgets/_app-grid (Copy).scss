@@ -9,10 +9,10 @@ $app_folder_size: 720px;
   column-spacing: $base_padding * 2;
   max-row-spacing: $base_padding * 6;
   max-column-spacing: $base_padding * 6;
-  page-padding-top: $base_padding * 1; //4;
-  page-padding-bottom: $base_padding * 4; //4;
-  page-padding-left: $base_padding * 1; //3;
-  page-padding-right: $base_padding * 1; //3;
+  page-padding-top: $base_padding * 4;
+  page-padding-bottom: $base_padding * 4;
+  page-padding-left: $base_padding * 3;
+  page-padding-right: $base_padding * 3;
 }
 
 /* App Icons */
